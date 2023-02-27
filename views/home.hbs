@@ -1,0 +1,46 @@
+<div class ="row">
+  <div class="col-6"><h1>Users</h1></div>
+  <div class="col-6  d-flex justify-content-end">
+    <a href="/addUser" type ="button" class="btn btn-primary #align-self-centre"> +ADD USER</a>
+  </div>
+</div>
+
+{{#if alert}}
+<div class="alert alert-succees alert-dismissible fade show" role="alert">
+  <strong>{{alert}}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Comment</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.First_Name}}</td>
+      <td>{{this.Last_Name}}</td>
+      <td>{{this.email}}</td>
+      <td>{{this.phone}}</td>
+      <td>{{this.comments}}</td>
+      <td>{{this.status}}</td>
+      <td>
+       <a href="/viewUser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye"></i>  View</a>
+       <a href="/editUser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil"></i>  Edit</a>
+       <a href="/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x"></i>  Delete</a>
+      </td>
+    </tr>
+   {{/each}}
+  </tbody>
+</table>
